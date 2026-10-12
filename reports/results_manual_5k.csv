@@ -1,0 +1,11 @@
+model,split,AUC,ndcg@10,recall@10,logloss
+random,val,0.5032,0.0497,0.0669,
+top-popular,val,0.5328,0.0497,0.0708,
+random,test,0.5016,0.0575,0.0806,
+top-popular,test,0.5237,0.0553,0.0806,
+minimal (all-time only),val,0.8244,0.0756,0.1088,0.0484
+minimal (all-time only),test,0.8364,0.0823,0.1128,0.0449
+full manual,val,0.8253,0.0722,0.0968,0.0485
+full manual,test,0.839,0.0818,0.1123,0.0447
+full manual + artist/album,val,0.8249,0.0777,0.1064,0.0484
+full manual + artist/album,test,0.8409,0.0852,0.1136,0.0449
