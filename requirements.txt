@@ -1,0 +1,9 @@
+datasets
+huggingface_hub
+pandas
+numpy
+scikit-learn
+lightgbm
+pyarrow
+ipywidgets
+# optuna   # понадобится для тюнинга бустинга

@@ -1,0 +1,17 @@
+# данные и тяжёлые артефакты (не коммитим!)
+data/*
+!data/.gitkeep
+*.parquet
+*.feather
+*.pkl
+
+# окружение и IDE
+.venv/
+venv/
+__pycache__/
+.idea/
+.DS_Store
+.ipynb_checkpoints/
+
+# кэш HuggingFace
+.cache/
