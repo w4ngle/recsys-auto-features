@@ -13,8 +13,8 @@ def window(L, a, b):
 def build(L, K, cand, cutoff, windows=WINDOWS):
     """User / item / user-item признаки + конверсии + средняя доля прослушивания в прошлом."""
     HL, HK = L[L.timestamp < cutoff], K[K.timestamp < cutoff]
-    assert HL.timestamp.max() < cutoff and HK.timestamp.max() < cutoff   # защита от утечки
-    assert cand.timestamp.min() >= cutoff
+    assert (HL.timestamp < cutoff).all() and (HK.timestamp < cutoff).all()   # защита от утечки
+    assert (cand.timestamp >= cutoff).all()
 
     X = cand[["uid", "item_id", "is_organic", "label"]].copy()
     for w in windows:
@@ -59,13 +59,15 @@ def add_indirect(L, K, X, cutoff, maps, windows=WINDOWS):
     return X
 
 
-def build_train(L, K, t_val, maps=None, n_cuts=4, step=7):
+def build_train(L, K, t_val, maps=None, n_cuts=4, step=7, horizon=3600):
     """Обучающая выборка из нескольких недельных срезов перед t_val.
     Пары (юзер, трек), которые юзер уже лайкал до среза, выкидываем: новым лайком они стать не могут."""
+    if not 0 <= horizon < step * DAY:
+        raise ValueError("horizon must be shorter than the training window")
     parts = []
     for k in range(1, n_cuts + 1):
         c = t_val - k * step * DAY
-        X = build(L, K, window(L, c, c + step * DAY), c)
+        X = build(L, K, window(L, c, c + step * DAY - horizon), c)
         X = X[X.ui_likes_all == 0]
         if maps:
             X = add_indirect(L, K, X, c, maps)

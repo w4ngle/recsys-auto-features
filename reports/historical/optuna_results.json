@@ -1,0 +1,92 @@
+{
+  "ref": "TUNED manual+ar/al",
+  "metric": "NDCG@10, test",
+  "n_boot": 100,
+  "best_params": {
+    "manual+ar/al": {
+      "learning_rate": 0.0785207215954409,
+      "num_leaves": 54,
+      "min_child_samples": 246,
+      "colsample_bytree": 0.47096465552135997,
+      "subsample": 0.819960510663762,
+      "reg_alpha": 0.003744666535741566,
+      "reg_lambda": 6.007249475906201
+    },
+    "auto-all": {
+      "learning_rate": 0.06585939190775437,
+      "num_leaves": 30,
+      "min_child_samples": 89,
+      "colsample_bytree": 0.5466553552009616,
+      "subsample": 0.5794847918227599,
+      "reg_alpha": 0.0027637615125314257,
+      "reg_lambda": 0.42200573971950167
+    }
+  },
+  "metrics": [
+    {
+      "model": "TUNED manual+ar/al",
+      "split": "val",
+      "ndcg10": 0.0837,
+      "recall10": 0.1097
+    },
+    {
+      "model": "TUNED auto-all",
+      "split": "val",
+      "ndcg10": 0.082,
+      "recall10": 0.1104
+    },
+    {
+      "model": "default manual+ar/al",
+      "split": "val",
+      "ndcg10": 0.0777,
+      "recall10": 0.1064
+    },
+    {
+      "model": "default auto-all",
+      "split": "val",
+      "ndcg10": 0.0812,
+      "recall10": 0.1111
+    },
+    {
+      "model": "TUNED manual+ar/al",
+      "split": "test",
+      "ndcg10": 0.0883,
+      "recall10": 0.1181
+    },
+    {
+      "model": "TUNED auto-all",
+      "split": "test",
+      "ndcg10": 0.0909,
+      "recall10": 0.1186
+    },
+    {
+      "model": "default manual+ar/al",
+      "split": "test",
+      "ndcg10": 0.0852,
+      "recall10": 0.1136
+    },
+    {
+      "model": "default auto-all",
+      "split": "test",
+      "ndcg10": 0.0848,
+      "recall10": 0.1151
+    }
+  ],
+  "diffs": {
+    "TUNED auto-all": [
+      0.001725620878131512,
+      -0.00289967546314747,
+      0.00712345227667128
+    ],
+    "default manual+ar/al": [
+      -0.003415133840703968,
+      -0.008821393679484401,
+      0.002690446613268898
+    ],
+    "default auto-all": [
+      -0.00408314943966271,
+      -0.011446420766665555,
+      0.0012993757279134315
+    ]
+  }
+}
