@@ -1,0 +1,26 @@
+{
+  "Xte_a_5k.parquet": {
+    "bytes": 107146604,
+    "sha256": "c1d9f3b81002cf75c040297707f2dae3217aed234df3325d987f28a7775e9ff3"
+  },
+  "Xva_a_5k.parquet": {
+    "bytes": 104939226,
+    "sha256": "864bc28378f480cddd68457b1928ea81907cb14f6d1460c99036bc0829ba0fbe"
+  },
+  "Xtr_5k.parquet": {
+    "bytes": 80163140,
+    "sha256": "a948a6c536571d15cf339fd66d61915bcd4d40d77ab3b4b50706914bbbbce015"
+  },
+  "Xva_5k.parquet": {
+    "bytes": 42553380,
+    "sha256": "2056f47e93edb9c7e9c0968397fc9ed57318d9c1d8f15db01ffefa82be8c4c53"
+  },
+  "Xtr_a_5k.parquet": {
+    "bytes": 188129636,
+    "sha256": "26b504c5e8985a7867b0d89d5ad691609139b6df1ca9214286af0f0b7c39c900"
+  },
+  "Xte_5k.parquet": {
+    "bytes": 43385658,
+    "sha256": "5408bd65facba10291a71eebf1287503d5e353a957cdc0c0a594a4512d340d44"
+  }
+}

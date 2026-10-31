@@ -38,8 +38,8 @@ def wname(w):
 def build_auto(L, K, cand, cutoff, maps=None, windows=AUTO_WINDOWS, entities=None):
     entities = entities or ENTITIES
     HL, HK = L[L.timestamp < cutoff], K[K.timestamp < cutoff]
-    assert HL.timestamp.max() < cutoff and HK.timestamp.max() < cutoff   # защита от утечки
-    assert cand.timestamp.min() >= cutoff
+    assert (HL.timestamp < cutoff).all() and (HK.timestamp < cutoff).all()   # защита от утечки
+    assert (cand.timestamp >= cutoff).all()
 
     X = cand[["uid", "item_id", "is_organic", "label"]].copy()
     if maps:
@@ -66,11 +66,13 @@ def build_auto(L, K, cand, cutoff, maps=None, windows=AUTO_WINDOWS, entities=Non
     return pd.concat([X, F], axis=1)
 
 
-def build_train_auto(L, K, t_val, maps=None, n_cuts=4, step=7, windows=AUTO_WINDOWS):
+def build_train_auto(L, K, t_val, maps=None, n_cuts=4, step=7, windows=AUTO_WINDOWS, horizon=3600):
     from .features import window
+    if not 0 <= horizon < step * DAY:
+        raise ValueError("horizon must be shorter than the training window")
     parts = []
     for k in range(1, n_cuts + 1):
         c = t_val - k * step * DAY
-        X = build_auto(L, K, window(L, c, c + step * DAY), c, maps, windows)
+        X = build_auto(L, K, window(L, c, c + step * DAY - horizon), c, maps, windows)
         parts.append(X[X.ui_likes_all == 0])          # убираем уже лайкнутые пары
     return pd.concat(parts, ignore_index=True)

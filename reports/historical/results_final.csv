@@ -1,0 +1,19 @@
+model,split,ndcg10,recall10
+CLF manual+ar/al,val,0.0777,0.1064
+CLF minimal,val,0.0756,0.1088
+CLF manual,val,0.0722,0.0968
+CLF auto-all,val,0.0812,0.1111
+CLF auto-top37,val,0.07,0.0927
+CLF auto-pruned,val,0.0767,0.1033
+RANK manual,val,0.0689,0.0972
+RANK auto-all,val,0.0796,0.104
+RANK auto-top37,val,0.0642,0.0889
+CLF manual+ar/al,test,0.0852,0.1136
+CLF minimal,test,0.0823,0.1128
+CLF manual,test,0.0818,0.1123
+CLF auto-all,test,0.0848,0.1151
+CLF auto-top37,test,0.0785,0.1077
+CLF auto-pruned,test,0.078,0.1036
+RANK manual,test,0.0721,0.0949
+RANK auto-all,test,0.0825,0.114
+RANK auto-top37,test,0.0691,0.096

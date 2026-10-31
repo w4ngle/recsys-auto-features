@@ -12,7 +12,7 @@ def feature_columns(X, exclude_prefixes=()):
 
 def fit_eval(name, feats, Xtr, Xva, Xte, params=None):
     p = dict(n_estimators=1000, learning_rate=0.05, num_leaves=63,
-             subsample=0.8, subsample_freq=1, colsample_bytree=0.8, verbose=-1)
+             subsample=0.8, subsample_freq=1, colsample_bytree=0.8, verbose=-1, random_state=42, n_jobs=4)
     p.update(params or {})
     m = lgb.LGBMClassifier(**p)
     m.fit(Xtr[feats], Xtr.label, eval_set=[(Xva[feats], Xva.label)],

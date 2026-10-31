@@ -1,0 +1,35 @@
+{
+  "python": "3.14.0",
+  "versions": {
+    "numpy": "2.5.4",
+    "pandas": "3.1.0",
+    "lightgbm": "4.7.0",
+    "optuna": "5.0.0",
+    "scikit-learn": "1.9.1",
+    "pyarrow": "26.0.0"
+  },
+  "run_search": false,
+  "data_summary": [
+    {
+      "split": "train",
+      "rows": 2349940,
+      "users": 4424,
+      "positive_users": 2047
+    },
+    {
+      "split": "val",
+      "rows": 1309444,
+      "users": 4371,
+      "positive_users": 1623
+    },
+    {
+      "split": "test",
+      "rows": 1333420,
+      "users": 4941,
+      "positive_users": 1656
+    }
+  ],
+  "seed": 42,
+  "tie_policy": "stable input order for exact ties",
+  "n_boot": 2000
+}

@@ -1,0 +1,33 @@
+{
+  "ref": "TUNED manual+ar/al",
+  "metric": "NDCG@10, test",
+  "n_boot": 2000,
+  "seed": 42,
+  "population": "users with positive test labels",
+  "diffs": {
+    "default manual+ar/al": {
+      "point_delta": 0.002469130518330878,
+      "bootstrap_mean": 0.0024848851831065404,
+      "ci95": [
+        -0.004471007304190676,
+        0.009221120229834777
+      ]
+    },
+    "default auto-all": {
+      "point_delta": -0.004062509163224037,
+      "bootstrap_mean": -0.004052239970428604,
+      "ci95": [
+        -0.011265560260581826,
+        0.003294526016243003
+      ]
+    },
+    "TUNED auto-all": {
+      "point_delta": 0.002700250037619381,
+      "bootstrap_mean": 0.002616663593656688,
+      "ci95": [
+        -0.004240484181637616,
+        0.009804543905811352
+      ]
+    }
+  }
+}
